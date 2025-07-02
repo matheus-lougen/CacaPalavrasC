@@ -90,8 +90,7 @@ void cadastrar_palavra() {
     Palavra* palavras = carregar_palavras(&total_palavras);
 
     printf("\nDigite a nova palavra (mínimo 5 letras, máximo 9 letras): ");
-    fgets(nova_palavra, sizeof(nova_palavra), stdin);
-    nova_palavra[strcspn(nova_palavra, "\n")] = '\0';  // Remover o '\n' do final
+    scanf("%s", nova_palavra);
 
     int tamanho = strlen(nova_palavra);
 
@@ -147,7 +146,6 @@ void atualizar_palavra() {
     int escolha;
     printf("\nDigite o número da palavra que deseja atualizar: ");
     scanf("%d", &escolha);
-    getchar(); // Limpar o '\n' do buffer
 
     if (escolha < 1 || escolha > total_palavras) {
         printf("Opção inválida!\n");
@@ -157,8 +155,7 @@ void atualizar_palavra() {
 
     char nova_palavra[TAM_MAX_PALAVRA];
     printf("Digite a nova palavra (mínimo 5 letras, máximo 9 letras): ");
-    fgets(nova_palavra, sizeof(nova_palavra), stdin);
-    nova_palavra[strcspn(nova_palavra, "\n")] = '\0';  // Remover '\n'
+    scanf("%9s", nova_palavra);
 
     int tamanho = strlen(nova_palavra);
 
@@ -647,5 +644,4 @@ void substituir_palavra_na_matriz(Matriz* matriz, Coordenada inicio, Coordenada 
         y += dy;
     }
 }
-
 
